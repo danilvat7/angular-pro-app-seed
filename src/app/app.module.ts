@@ -31,12 +31,3 @@ export const ROUTES: Routes = [];
   ]
 })
 export class AppModule {}
-
-// var config = {
-//   apiKey: "AIzaSyCCJmqePUJ06PkjoRgbwA4VxX9qFIfi87A",
-//   authDomain: "pro-app-7f64f.firebaseapp.com",
-//   databaseURL: "https://pro-app-7f64f.firebaseio.com",
-//   projectId: "pro-app-7f64f",
-//   storageBucket: "pro-app-7f64f.appspot.com",
-//   messagingSenderId: "576861336153"
-// };
