@@ -30,6 +30,10 @@ export class AuthService {
     private af: AngularFireAuth
   ) { }
 
+  get authState() {
+    return this.af.authState;
+  }
+
   createUser(email: string, password: string) {
     return this.af.auth
       .createUserWithEmailAndPassword(email, password);
@@ -38,6 +42,10 @@ export class AuthService {
   loginUser(email: string, password: string) {
     return this.af.auth
       .signInWithEmailAndPassword(email, password);
+  }
+
+  logoutUser(){
+    return this.af.auth.signOut();
   }
 
 }
