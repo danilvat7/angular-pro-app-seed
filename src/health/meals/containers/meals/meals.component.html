@@ -1,0 +1,28 @@
+<div class="meals">
+  <div class="meals__title">
+    <h1>
+      <img src="/img/food.svg" alt="food"> Your meals
+    </h1>
+    <a [routerLink]="['../meals/new']" class="btn__add">
+      <img src="/img/add-white.svg" alt="add">
+      New Meal
+    </a>
+  </div>
+  <div *ngIf="meals$ | async as meals; else loading;">
+    <div class="message" *ngIf="!meals.length">
+      <img src="/img/face.svg" alt="face">
+      No meals, add a new meal to start
+    </div>
+    <list-item
+      *ngFor="let meal of meals"
+      [item]="meal"
+      (remove)="removeMeal($event)">
+    </list-item>
+  </div>
+  <ng-template #loading>
+    <div class="message">
+      <img src="/img/loading.svg" alt="loading">
+      Fetching meals...
+    </div>
+  </ng-template>
+</div>

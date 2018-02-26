@@ -1,14 +1,29 @@
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { NgModule, ModuleWithProviders } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+
+// components
+import { AuthFormComponent } from "./components/auth-form/auth-form.component";
+
+// services
+import { AuthService } from "./services/auth/auth.service";
+
+// guards
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule],
   declarations: [AuthFormComponent],
-  exports: [AuthFormComponent]
+  exports: [AuthFormComponent],
 })
-export class SharedModule { }
+export class SharedModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [
+        AuthService,
+        AuthGuard
+      ]
+    }
+  }
+}
