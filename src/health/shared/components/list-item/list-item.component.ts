@@ -19,7 +19,9 @@ export class ListItemComponent implements OnInit {
   ngOnInit() {
   }
   getRoute(item: any) {
-    return [`../meals`, item.$key]
+    return [
+      `../${item.ingredients ? 'meals' : 'workouts'}`,
+      item.$key]
   }
 
   toggle() {
